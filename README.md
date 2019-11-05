@@ -10,8 +10,17 @@ Prerequisites:-
 
 Steps to implement custom metrics
 
-In IAM console choose roles and select aws-elasticbeanstalk-ec2-role and click Attach policy, search for AWS managed policy named “CloudWatchAgentServerPolicy” and attach with this role.
+Copy the file "EBcustomMetrics.config" and paste it under the ".ebextension" folder. If you don't have ".ebextension" folder go ahead and create it in the root of your application code.
 
-Add the file “cloudwatch.config”  in your codebase under “.ebextension” folder. So the file structure will be look like (/ .ebextension / cloudwatch.config). If you don’t have “.ebextension” folder go ahead and create it, in the root of your application source code.
+Deploy the code to your environment.
 
-Add the following contents in your folder. 
+The Custom Metrics can be viewed under
+Cloudwatch -> Metrics -> Linux System
+
+InstanceId section will give you the Memory utilisation metrics (RAM) for each individual instances in your environment.
+
+AutoScalingGroupName section will give you the Average Memory utilisation metrics (RAM) for your environment.
+
+Filesystem section will give you the Disk utilisation metrics for each individual instances in your environment.
+
+AutoScalingGroupName Filesystem section will give you the Average Disk utilisation for your environment.
